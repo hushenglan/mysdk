@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     Business1 busi;
     Busi1Callback callback;
 
-    busi.Init(callback);
+    busi.Init(&callback);
 
     busi.do_action(1, 2, 3);
     busi.Update();

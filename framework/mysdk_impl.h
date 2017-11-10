@@ -15,11 +15,14 @@
 class MysdkImpl
 {
 public:
-    int Init(const Callback& callback);
+    MysdkImpl();
+    ~MysdkImpl();
+
+    int Init(Callback *callback);
     int Update();
 
 private:
-    Callback& m_callback;
+    Callback *m_callback;
 };
 
 

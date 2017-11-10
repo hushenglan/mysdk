@@ -6,9 +6,18 @@
  */
 
 #include "mysdk_impl.h"
+#include <stdlib.h>
 
 
-int MysdkImpl::Init(const Callback& callback)
+MysdkImpl::MysdkImpl() : m_callback(NULL)
+{
+}
+
+MysdkImpl::~MysdkImpl()
+{
+}
+
+int MysdkImpl::Init(Callback *callback)
 {
     m_callback = callback;
     return 0;
@@ -19,6 +28,7 @@ int MysdkImpl::Update()
     /*
      * 调用回调
      */
-    return m_callback.callback();
+    m_callback->callback();
+    return 0;
 }
 

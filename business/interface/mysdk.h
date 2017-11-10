@@ -9,30 +9,32 @@
 #define INTERFACE_MYSDK_H_
 
 
+class MysdkImpl;
+
+
 class Callback
 {
 public:
-    Callback();
-    virtual ~Callback();
+    Callback()
+    {
+    }
+
+    virtual ~Callback()
+    {
+    }
 
     virtual void callback() = 0;
     virtual void timeout() = 0;
 };
 
 
-class MysdkImpl;
 class Mysdk {
-protected:
-    int Init(const Callback& callback) {
-        return m_mysdk_impl.Init(callback);
-    }
-
-    int Update() {
-        return m_mysdk_impl.Update();
-    }
+public:
+    int Init(Callback *callback);
+    int Update();
 
 private:
-    MysdkImpl m_mysdk_impl;
+    MysdkImpl *m_mysdk_impl;
 };
 
 
