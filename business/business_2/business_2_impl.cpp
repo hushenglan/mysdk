@@ -11,7 +11,7 @@
 
 int Business2Impl::do_action(const std::string& param_1, const std::string& param_2, const std::string& param_3)
 {
-    std::cout << "Business2Impl do_action" << std::endl;
+    std::cout << "Business2Impl do_action: " << param_1 << param_2 << param_3 << std::endl;
     return 0;
 }
 
