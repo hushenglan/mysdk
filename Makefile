@@ -47,25 +47,25 @@ GTEST_LIBS += $(PROJ_DIR)/deps/gtest/googletest-release-1.8.0/googletest/make/gt
 
 MYLIB = $(PROJ_DIR)/mylib.a
 MYLIB_OBJS = $(FRAMEWORK_OBJS_DIR)/mysdk.o \
-			 $(FRAMEWORK_OBJS_DIR)/mysdk_impl.o \
-			 $(BUSINESS1_OBJS_DIR)/business_1.o \
-			 $(BUSINESS1_OBJS_DIR)/business_1_impl.o \
-			 $(BUSINESS2_OBJS_DIR)/business_2.o \
-			 $(BUSINESS2_OBJS_DIR)/business_2_impl.o
+             $(FRAMEWORK_OBJS_DIR)/mysdk_impl.o \
+             $(BUSINESS1_OBJS_DIR)/business_1.o \
+             $(BUSINESS1_OBJS_DIR)/business_1_impl.o \
+             $(BUSINESS2_OBJS_DIR)/business_2.o \
+             $(BUSINESS2_OBJS_DIR)/business_2_impl.o
 
-DEMO_OBJS  = $(OBJS_DIR)/demo_2.o
-DEMO_EXE   = $(PROJ_DIR)/demo_2
+DEMO_OBJS  = $(OBJS_DIR)/demo_1.o
+DEMO_EXE   = $(PROJ_DIR)/demo_1
 
 
 
 #------------------------------- MKDIR -------------------------------
 build_obj_path := $(shell \
-	mkdir -p $(OBJS_DIR) && \
-	mkdir -p $(FRAMEWORK_OBJS_DIR) && \
-	mkdir -p $(BUSINESS_OBJS_DIR) && \
-	mkdir -p $(BUSINESS1_OBJS_DIR) && \
-	mkdir -p $(BUSINESS2_OBJS_DIR) && \
-	mkdir -p $(EXAMPLE_OBJS_DIR))
+    mkdir -p $(OBJS_DIR) && \
+    mkdir -p $(FRAMEWORK_OBJS_DIR) && \
+    mkdir -p $(BUSINESS_OBJS_DIR) && \
+    mkdir -p $(BUSINESS1_OBJS_DIR) && \
+    mkdir -p $(BUSINESS2_OBJS_DIR) && \
+    mkdir -p $(EXAMPLE_OBJS_DIR))
 
 
 
@@ -77,34 +77,34 @@ all: mylib demo
 
 #------------------------------- DEPENDS -------------------------------
 $(FRAMEWORK_OBJS_DIR)/%.d:$(FRAMEWORK_DIR)/%.cpp
-	@set -e; rm -f $@; \
-	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-	rm -f $@.$$$$
+    @set -e; rm -f $@; \
+    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+    rm -f $@.$$$$
 
 $(BUSINESS1_OBJS_DIR)/%.d:$(BUSINESS1_DIR)/%.cpp
-	@set -e; rm -f $@; \
-	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-	rm -f $@.$$$$
+    @set -e; rm -f $@; \
+    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+    rm -f $@.$$$$
 
 $(BUSINESS2_OBJS_DIR)/%.d:$(BUSINESS2_DIR)/%.cpp
-	@set -e; rm -f $@; \
-	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-	rm -f $@.$$$$
+    @set -e; rm -f $@; \
+    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+    rm -f $@.$$$$
 
 $(EXAMPLE_OBJS_DIR)/%.d:$(EXAMPLE_DIR)/%.cpp
-	@set -e; rm -f $@; \
-	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-	rm -f $@.$$$$
+    @set -e; rm -f $@; \
+    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+    rm -f $@.$$$$
 
 $(OBJS_DIR)/%.d:$(EXAMPLE_DIR)/%.cpp
-	@set -e; rm -f $@; \
-	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-	rm -f $@.$$$$
+    @set -e; rm -f $@; \
+    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+    rm -f $@.$$$$
 
 -include $(GTEST_OBJS:.o=.d)
 
@@ -112,46 +112,46 @@ $(OBJS_DIR)/%.d:$(EXAMPLE_DIR)/%.cpp
 
 #------------------------------- OBJS -------------------------------
 $(FRAMEWORK_OBJS_DIR)/%.o:$(FRAMEWORK_DIR)/%.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+    $(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(BUSINESS1_OBJS_DIR)/%.o:$(BUSINESS1_DIR)/%.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+    $(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(BUSINESS2_OBJS_DIR)/%.o:$(BUSINESS2_DIR)/%.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+    $(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(EXAMPLE_OBJS_DIR)/%.o:$(EXAMPLE_DIR)/%.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+    $(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 $(OBJS_DIR)/%.o:$(EXAMPLE_DIR)/%.cpp
-	$(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
+    $(CXX) -c $(CXXFLAGS) $(CORE_INCS) -o $@ $<
 
 
 .PHONY:mylib
 mylib: $(MYLIB_OBJS)
-	@echo
-	@echo ----------------------------- compile finish, then link -----------------------------
-	@echo
-	$(AR) $(ARFLAGS) $(MYLIB) $(MYLIB_OBJS)
+    @echo
+    @echo ----------------------------- compile finish, then link -----------------------------
+    @echo
+    $(AR) $(ARFLAGS) $(MYLIB) $(MYLIB_OBJS)
 
 
 .PHONY:demo
 demo: $(DEMO_OBJS)
-	@echo
-	@echo ----------------------------- compile finish, then link -----------------------------
-	@echo
-	$(LINK) -o $(DEMO_EXE) $(DEMO_OBJS) $(MYLIB) $(LIBS_LOCS) $(LIBS)
+    @echo
+    @echo ----------------------------- compile finish, then link -----------------------------
+    @echo
+    $(LINK) -o $(DEMO_EXE) $(DEMO_OBJS) $(MYLIB) $(LIBS_LOCS) $(LIBS)
 
 
 
 #------------------------------- CLEAN -------------------------------
 .PHONY:clean
 clean:
-	rm -fr $(OBJS_DIR) $(MYLIB) $(DEMO_EXE)
+    rm -fr $(OBJS_DIR) $(MYLIB) $(DEMO_EXE)
 
 
 
 #------------------------------- UNPACK -------------------------------
 .PHONY:unpack
 unpack:
-	sh $(PROJ_DIR)/unpack.sh
+    sh $(PROJ_DIR)/unpack.sh
