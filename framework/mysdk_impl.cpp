@@ -34,7 +34,6 @@ int MysdkImpl::Update()
      */
 
     int request_type = BUSINESS_1;
-    void *param = NULL;
     switch (request_type)
     {
         case BUSINESS_1:
@@ -43,7 +42,8 @@ int MysdkImpl::Update()
             struct Busi1CallbackParam param;
             param.seq = 100001;
             param.result = 99984386;
-            param.msg = "wo le ge qu";
+            char msg[1024] = "wo le ge qu";
+            param.msg = msg;
             m_callback->_callback(&param);
             break;
         }

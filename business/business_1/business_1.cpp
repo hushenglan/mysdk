@@ -13,13 +13,13 @@
 void Busi1Callback::_callback(void *param)
 {
     struct Busi1CallbackParam *busi_param = (struct Busi1CallbackParam*)param;
-    callback(busi_param);
+    this->callback(busi_param);
 }
 
 void Busi1Callback::_timeout(void *param)
 {
     struct Busi1CallbackParam *busi_param = (struct Busi1CallbackParam*)param;
-    timeout(busi_param);
+    this->timeout(busi_param);
 }
 
 

@@ -16,7 +16,6 @@ class MysdkImpl;
     void _callback(void *param); \
     void _timeout(void *param)
 
-
 class Callback
 {
 public:
