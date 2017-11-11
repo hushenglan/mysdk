@@ -15,6 +15,24 @@
 class Business1Impl;
 
 
+struct Busi1CallbackParam
+{
+    unsigned int seq;
+    int result;
+    char *msg;
+};
+
+
+class Busi1Callback : public Callback
+{
+public:
+    virtual void callback(struct Busi1CallbackParam *param) = 0;
+    virtual void timeout(struct Busi1CallbackParam *param) = 0;
+
+    CALLBACK_USELESS_DECLARE;
+};
+
+
 class Business1 : public Mysdk
 {
 public:

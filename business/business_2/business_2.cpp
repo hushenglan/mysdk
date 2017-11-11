@@ -11,6 +11,19 @@
 #include <iostream>
 
 
+void Busi2Callback::_callback(void *param)
+{
+    struct Busi2CallbackParam *busi_param = (struct Busi2CallbackParam*)param;
+    callback(busi_param);
+}
+
+void Busi2Callback::_timeout(void *param)
+{
+    struct Busi2CallbackParam *busi_param = (struct Busi2CallbackParam*)param;
+    timeout(busi_param);
+}
+
+
 int Business2::do_action(const std::string& param_1, const std::string& param_2, const std::string& param_3)
 {
     return m_business2_impl->do_action(param_1, param_2, param_3);

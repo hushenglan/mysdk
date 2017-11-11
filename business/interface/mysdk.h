@@ -12,19 +12,16 @@
 class MysdkImpl;
 
 
+#define CALLBACK_USELESS_DECLARE \
+    void _callback(void *param); \
+    void _timeout(void *param)
+
+
 class Callback
 {
 public:
-    Callback()
-    {
-    }
-
-    virtual ~Callback()
-    {
-    }
-
-    virtual void callback() = 0;
-    virtual void timeout() = 0;
+    virtual void _callback(void *param);
+    virtual void _timeout(void *param);
 };
 
 

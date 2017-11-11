@@ -7,6 +7,8 @@
 
 #include "mysdk_impl.h"
 #include <stdlib.h>
+#include "business_1.h"
+#include "business_2.h"
 
 
 MysdkImpl::MysdkImpl() : m_callback(NULL)
@@ -26,9 +28,43 @@ int MysdkImpl::Init(Callback *callback)
 int MysdkImpl::Update()
 {
     /*
-     * 调用回调
+     * 从后端接收数据包，根据数据包的seq可以查询本地session
+     * 本地session会保存请求类型，所以根据返回的数据包就可以得到请求类型
+     * 然后根据对应的回调函数参数结构体调用回调
      */
-    m_callback->callback();
+
+    int request_type = BUSINESS_1;
+    void *param = NULL;
+    switch (request_type)
+    {
+        case BUSINESS_1:
+        {
+            printf("Update in BUSINESS_1\n");
+            struct Busi1CallbackParam param;
+            param.seq = 100001;
+            param.result = 99984386;
+            param.msg = "wo le ge qu";
+            m_callback->_callback(&param);
+            break;
+        }
+
+        case BUSINESS_2:
+        {
+            printf("Update in BUSINESS_2\n");
+            struct Busi2CallbackParam param;
+            param.seq = 100002;
+            param.is_need = false;
+            m_callback->_callback(&param);
+            break;
+        }
+
+        default:
+        {
+            printf("unknown request_type: %d\n", request_type);
+            break;
+        }
+    }
+
     return 0;
 }
 

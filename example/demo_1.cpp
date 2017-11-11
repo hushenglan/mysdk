@@ -9,16 +9,18 @@
 #include <iostream>
 
 
-class Busi1Callback : public Callback
+class Demo1Callback : public Busi1Callback
 {
-    virtual void callback()
+    void callback(struct Busi1CallbackParam *param)
     {
-        std::cout << "in Busi1Callback callback" << std::endl;
+        std::cout << "in Demo1Callback callback, seq: " << param->seq <<
+                                            ", result: " << param->result <<
+                                            ", msg: " << param->msg << std::endl;
     }
 
-    virtual void timeout()
+    void timeout(struct Busi1CallbackParam *param)
     {
-        std::cout << "in Busi1Callback timeout" << std::endl;
+        std::cout << "in Demo1Callback timeout" << std::endl;
     }
 };
 
@@ -26,7 +28,7 @@ class Busi1Callback : public Callback
 int main(int argc, char *argv[])
 {
     Business1 busi;
-    Busi1Callback callback;
+    Demo1Callback callback;
 
     busi.Init(&callback);
 

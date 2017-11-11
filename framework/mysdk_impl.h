@@ -12,6 +12,12 @@
 #include "mysdk.h"
 
 
+enum REQUEST_TYPE {
+    BUSINESS_1 = 0,
+    BUSINESS_2,
+};
+
+
 class MysdkImpl
 {
 public:
