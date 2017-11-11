@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 
     busi.do_action(1, 2, 3);
     busi.Update();
+
     busi.Fini();
 
     return 0;
