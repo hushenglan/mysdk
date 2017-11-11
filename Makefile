@@ -78,35 +78,36 @@ all: mylib demo
 #------------------------------- DEPENDS -------------------------------
 $(FRAMEWORK_OBJS_DIR)/%.d:$(FRAMEWORK_DIR)/%.cpp
 	@set -e; rm -f $@; \
-    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-    rm -f $@.$$$$
+	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,$(FRAMEWORK_OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
 
 $(BUSINESS1_OBJS_DIR)/%.d:$(BUSINESS1_DIR)/%.cpp
 	@set -e; rm -f $@; \
-    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-    rm -f $@.$$$$
+	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,$(BUSINESS1_OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
 
 $(BUSINESS2_OBJS_DIR)/%.d:$(BUSINESS2_DIR)/%.cpp
 	@set -e; rm -f $@; \
-    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-    rm -f $@.$$$$
+	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,$(BUSINESS2_OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
 
 $(EXAMPLE_OBJS_DIR)/%.d:$(EXAMPLE_DIR)/%.cpp
 	@set -e; rm -f $@; \
-    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-    rm -f $@.$$$$
+	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,$(EXAMPLE_OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
 
 $(OBJS_DIR)/%.d:$(EXAMPLE_DIR)/%.cpp
 	@set -e; rm -f $@; \
-    $(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
-    sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
-    rm -f $@.$$$$
+	$(CXX) -MM $(CORE_INCS) $< > $@.$$$$; \
+	sed 's,\($*\)\.o[ :]*,$(OBJS_DIR)/\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
 
--include $(GTEST_OBJS:.o=.d)
+-include $(MYLIB_OBJS:.o=.d)
+-include $(DEMO_OBJS:.o=.d)
 
 
 
