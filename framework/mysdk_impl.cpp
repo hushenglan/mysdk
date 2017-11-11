@@ -68,3 +68,7 @@ int MysdkImpl::Update()
     return 0;
 }
 
+int MysdkImpl::Fini()
+{
+    return 0;
+}

@@ -28,6 +28,7 @@ class Mysdk {
 public:
     int Init(Callback *callback);
     int Update();
+    int Fini();
 
 private:
     MysdkImpl *m_mysdk_impl;

@@ -26,6 +26,7 @@ public:
 
     int Init(Callback *callback);
     int Update();
+    int Fini();
 
 private:
     Callback *m_callback;

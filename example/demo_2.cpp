@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 
     busi.do_action("I ", "am ", "super man");
     busi.Update();
+    busi.Fini();
 
     return 0;
 }

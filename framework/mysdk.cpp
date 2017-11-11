@@ -19,3 +19,8 @@ int Mysdk::Update()
 {
     return m_mysdk_impl->Update();
 }
+
+int Mysdk::Fini()
+{
+    return m_mysdk_impl->Fini();
+}
