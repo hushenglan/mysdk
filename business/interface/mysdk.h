@@ -11,6 +11,7 @@
 
 /*
  * 通常业务不直接使用Callback类
+ * 注意下面的宏需要和Callback内部的定义保持一致
  */
 class Callback
 {
