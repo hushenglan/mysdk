@@ -15,8 +15,8 @@
 class Callback
 {
 public:
-    virtual void _callback(void *param);
-    virtual void _timeout(void *param);
+    virtual void _callback(void *param) = 0;
+    virtual void _timeout(void *param) = 0;
 };
 
 #define CALLBACK_USELESS_DECLARE \
