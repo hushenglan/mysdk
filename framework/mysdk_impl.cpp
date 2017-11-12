@@ -52,6 +52,7 @@ int MysdkImpl::Update()
             char msg[1024] = "wo le ge qu";
             param.msg = msg;
             m_callback->_callback(&param);
+            m_callback->_timeout(&param);
             break;
         }
 
@@ -62,6 +63,7 @@ int MysdkImpl::Update()
             param.seq = 100002;
             param.is_need = false;
             m_callback->_callback(&param);
+            m_callback->_timeout(&param);
             break;
         }
 

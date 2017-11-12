@@ -28,12 +28,22 @@ struct Busi2CallbackParam
 class Busi2Callback : public Callback
 {
 public:
-    virtual void callback(struct Busi2CallbackParam *param) = 0;
-    virtual void timeout(struct Busi2CallbackParam *param) = 0;
+    virtual void callback(const struct Busi2CallbackParam& param) = 0;
+    virtual void timeout(const struct Busi2CallbackParam& param) = 0;
 
     CALLBACK_USELESS_DECLARE;
 };
 
+
+/*
+ * 接口参数
+ */
+struct Busi2ActionParam
+{
+    std::string param_1;
+    std::string param_2;
+    std::string param_3;
+};
 
 
 /*
@@ -44,7 +54,7 @@ class Business2 : public Mysdk
 {
 public:
     int Init(Callback *callback);
-    int do_action(const std::string& param_1, const std::string& param_2, const std::string& param_3);
+    int do_action(const Busi2ActionParam& param);
     int Update();
     int Fini();
 

@@ -14,7 +14,7 @@
 class Business2Impl
 {
 public:
-    int do_action(const std::string& param_1, const std::string& param_2, const std::string& param_3);
+    int do_action(const Busi2ActionParam& param);
 };
 
 
