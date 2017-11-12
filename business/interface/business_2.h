@@ -12,9 +12,9 @@
 #include <string>
 
 
-class Business2Impl;
-
-
+/*
+ * 回调参数
+ */
 struct Busi2CallbackParam
 {
     unsigned int seq;
@@ -22,6 +22,9 @@ struct Busi2CallbackParam
 };
 
 
+/*
+ * 用户需要实现的回调函数基类，子类实现callback和timeout即可
+ */
 class Busi2Callback : public Callback
 {
 public:
@@ -32,10 +35,18 @@ public:
 };
 
 
+
+/*
+ * 用户可以使用的业务接口
+ */
+class Business2Impl;
 class Business2 : public Mysdk
 {
 public:
+    int Init(Callback *callback);
     int do_action(const std::string& param_1, const std::string& param_2, const std::string& param_3);
+    int Update();
+    int Fini();
 
 private:
     Business2Impl *m_business2_impl;

@@ -8,7 +8,6 @@
 #ifndef FRAMEWORK_MYSDK_IMPL_H_
 #define FRAMEWORK_MYSDK_IMPL_H_
 
-
 #include "mysdk.h"
 
 

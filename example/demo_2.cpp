@@ -5,7 +5,6 @@
  *      Author: bluehu
  */
 
-
 #include "business_2.h"
 #include <iostream>
 
@@ -27,9 +26,9 @@ class Demo2Callback : public Busi2Callback
 
 int main(int argc, char *argv[])
 {
-    Business2 busi;
     Demo2Callback callback;
 
+    Business2 busi;
     busi.Init(&callback);
 
     busi.do_action("I ", "am ", "super man");

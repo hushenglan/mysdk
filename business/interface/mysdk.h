@@ -9,13 +9,9 @@
 #define INTERFACE_MYSDK_H_
 
 
-class MysdkImpl;
-
-
-#define CALLBACK_USELESS_DECLARE \
-    void _callback(void *param); \
-    void _timeout(void *param)
-
+/*
+ * 通常业务不直接使用Callback类
+ */
 class Callback
 {
 public:
@@ -23,9 +19,20 @@ public:
     virtual void _timeout(void *param);
 };
 
+#define CALLBACK_USELESS_DECLARE \
+    void _callback(void *param); \
+    void _timeout(void *param)
 
+
+/*
+ * 通常业务不直接使用Mysdk类
+ */
+class MysdkImpl;
 class Mysdk {
 public:
+    Mysdk();
+    ~Mysdk();
+
     int Init(Callback *callback);
     int Update();
     int Fini();

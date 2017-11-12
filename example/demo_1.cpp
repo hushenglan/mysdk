@@ -27,10 +27,10 @@ class Demo1Callback : public Busi1Callback
 
 int main(int argc, char *argv[])
 {
-    Business1 busi;
     Demo1Callback callback;
 
-    busi.Init(&callback);
+    Business1 busi;
+    busi.Init(&callback, 200, 201);
 
     busi.do_action(1, 2, 3);
     busi.Update();

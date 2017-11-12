@@ -8,13 +8,12 @@
 #ifndef INTERFACE_BUSINESS_1_H_
 #define INTERFACE_BUSINESS_1_H_
 
-
 #include "mysdk.h"
 
 
-class Business1Impl;
-
-
+/*
+ * 回调参数
+ */
 struct Busi1CallbackParam
 {
     unsigned int seq;
@@ -23,6 +22,9 @@ struct Busi1CallbackParam
 };
 
 
+/*
+ * 用户需要实现的回调函数基类，子类实现callback和timeout即可
+ */
 class Busi1Callback : public Callback
 {
 public:
@@ -33,10 +35,17 @@ public:
 };
 
 
+/*
+ * 用户可以使用的业务接口
+ */
+class Business1Impl;
 class Business1 : public Mysdk
 {
 public:
+    int Init(Callback *callback, int param_1, int param_2);
     int do_action(int param_1, int param_2, int param_3);
+    int Update();
+    int Fini();
 
 private:
     Business1Impl *m_business1_impl;

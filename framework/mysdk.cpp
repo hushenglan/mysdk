@@ -7,12 +7,29 @@
 
 #include "mysdk.h"
 #include "mysdk_impl.h"
+#include <cstdio>
 
+
+Mysdk::Mysdk() : m_mysdk_impl(NULL)
+{
+}
+
+Mysdk::~Mysdk()
+{
+    if (m_mysdk_impl != NULL) {
+        delete m_mysdk_impl;
+        m_mysdk_impl = NULL;
+    }
+}
 
 int Mysdk::Init(Callback *callback)
 {
-    m_mysdk_impl = new MysdkImpl();
-    return m_mysdk_impl->Init(callback);
+    if (m_mysdk_impl == NULL) {
+        m_mysdk_impl = new MysdkImpl();
+        return m_mysdk_impl->Init(callback);
+    }
+
+    return 0;
 }
 
 int Mysdk::Update()

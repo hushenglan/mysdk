@@ -21,6 +21,7 @@ EXAMPLE_MODULE_NAME = example
 INTERFACE_MODULE_NAME = interface
 BUSINESS1_MODULE_NAME = business_1
 BUSINESS2_MODULE_NAME = business_2
+DEMO_CPP_NAME = demo_1
 
 PROJ_DIR = .
 INTERFACE_DIR = $(BUSINESS_DIR)/$(INTERFACE_MODULE_NAME)
@@ -53,7 +54,7 @@ MYLIB_OBJS = $(FRAMEWORK_OBJS_DIR)/mysdk.o \
              $(BUSINESS2_OBJS_DIR)/business_2.o \
              $(BUSINESS2_OBJS_DIR)/business_2_impl.o
 
-DEMO_OBJS  = $(OBJS_DIR)/demo_1.o
+DEMO_OBJS  = $(OBJS_DIR)/$(DEMO_CPP_NAME).o
 DEMO_EXE   = $(PROJ_DIR)/demo
 
 
@@ -146,13 +147,11 @@ demo: $(DEMO_OBJS)
 
 
 #------------------------------- CLEAN -------------------------------
-.PHONY:clean
 clean:
-	rm -fr $(OBJS_DIR) $(MYLIB) $(DEMO_EXE)
+	rm -fr $(OBJS_DIR) $(MYLIB) $(DEMO_EXE)*
 
 
 
 #------------------------------- UNPACK -------------------------------
-.PHONY:unpack
 unpack:
 	sh $(PROJ_DIR)/unpack.sh
