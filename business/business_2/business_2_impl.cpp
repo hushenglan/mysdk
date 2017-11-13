@@ -9,9 +9,9 @@
 #include <iostream>
 
 
-int Business2Impl::do_action(const Busi2ActionParam& param)
+int Business2Impl::DoAction(const Busi2ActionParam& param)
 {
-    std::cout << "Business2Impl do_action: " << param.param_1 << param.param_2 << param.param_3 << std::endl;
+    std::cout << "Business2Impl DoAction: " << param.param_1 << param.param_2 << param.param_3 << std::endl;
     return 0;
 }
 

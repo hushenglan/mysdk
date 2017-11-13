@@ -15,7 +15,7 @@ class Business1Impl
 {
 public:
     int Init(int param_1, int param_2);
-    int do_action(int param_1, int param_2, int param_3);
+    int DoAction(int param_1, int param_2, int param_3);
 };
 
 

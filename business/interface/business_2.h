@@ -28,8 +28,8 @@ struct Busi2CallbackParam
 class Busi2Callback : public Callback
 {
 public:
-    virtual void callback(const struct Busi2CallbackParam& param) = 0;
-    virtual void timeout(const struct Busi2CallbackParam& param) = 0;
+    virtual void Callback(const struct Busi2CallbackParam& param) = 0;
+    virtual void Timeout(const struct Busi2CallbackParam& param) = 0;
 
     CALLBACK_USELESS_DECLARE;
 };
@@ -54,7 +54,7 @@ class Business2 : public Mysdk
 {
 public:
     int Init(Callback *callback);
-    int do_action(const Busi2ActionParam& param);
+    int DoAction(const Busi2ActionParam& param);
     int Update();
     int Fini();
 

@@ -11,14 +11,14 @@
 
 class Demo1Callback : public Busi1Callback
 {
-    void callback(struct Busi1CallbackParam *param)
+    void Callback(struct Busi1CallbackParam *param)
     {
         std::cout << "in Demo1Callback callback, seq: " << param->seq <<
                                             ", result: " << param->result <<
                                             ", msg: " << param->msg << std::endl;
     }
 
-    void timeout(struct Busi1CallbackParam *param)
+    void Timeout(struct Busi1CallbackParam *param)
     {
         std::cout << "in Demo1Callback timeout" << std::endl;
     }
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     Business1 busi;
     busi.Init(&callback, 200, 201);
 
-    busi.do_action(1, 2, 3);
+    busi.DoAction(1, 2, 3);
     busi.Update();
 
     busi.Fini();

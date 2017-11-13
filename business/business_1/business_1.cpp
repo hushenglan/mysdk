@@ -13,13 +13,13 @@
 void Busi1Callback::_callback(void *param)
 {
     struct Busi1CallbackParam *busi_param = (struct Busi1CallbackParam*)param;
-    this->callback(busi_param);
+    this->Callback(busi_param);
 }
 
 void Busi1Callback::_timeout(void *param)
 {
     struct Busi1CallbackParam *busi_param = (struct Busi1CallbackParam*)param;
-    this->timeout(busi_param);
+    this->Timeout(busi_param);
 }
 
 
@@ -29,9 +29,9 @@ int Business1::Init(Callback *callback, int param_1, int param_2)
     return m_business1_impl->Init(param_1, param_2);
 }
 
-int Business1::do_action(int param_1, int param_2, int param_3)
+int Business1::DoAction(int param_1, int param_2, int param_3)
 {
-    return m_business1_impl->do_action(param_1, param_2, param_3);
+    return m_business1_impl->DoAction(param_1, param_2, param_3);
 }
 
 int Business1::Update()

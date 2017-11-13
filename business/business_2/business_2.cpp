@@ -13,13 +13,13 @@
 void Busi2Callback::_callback(void *param)
 {
     struct Busi2CallbackParam busi_param = *(struct Busi2CallbackParam*)param;
-    this->callback(busi_param);
+    this->Callback(busi_param);
 }
 
 void Busi2Callback::_timeout(void *param)
 {
     struct Busi2CallbackParam busi_param = *(struct Busi2CallbackParam*)param;
-    this->timeout(busi_param);
+    this->Timeout(busi_param);
 }
 
 
@@ -28,9 +28,9 @@ int Business2::Init(Callback *callback)
     return Mysdk::Init(callback);
 }
 
-int Business2::do_action(const Busi2ActionParam& param)
+int Business2::DoAction(const Busi2ActionParam& param)
 {
-    return m_business2_impl->do_action(param);
+    return m_business2_impl->DoAction(param);
 }
 
 int Business2::Update()

@@ -14,7 +14,7 @@
 class Business2Impl
 {
 public:
-    int do_action(const Busi2ActionParam& param);
+    int DoAction(const Busi2ActionParam& param);
 };
 
 

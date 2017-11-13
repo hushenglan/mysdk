@@ -19,9 +19,9 @@ int Business1Impl::Init(int param_1, int param_2)
     return 0;
 }
 
-int Business1Impl::do_action(int param_1, int param_2, int param_3)
+int Business1Impl::DoAction(int param_1, int param_2, int param_3)
 {
-    std::cout << "Business1Impl do_action: " << param_1 + param_2 + param_3 << std::endl;
+    std::cout << "Business1Impl DoAction: " << param_1 + param_2 + param_3 << std::endl;
     return 0;
 }
 

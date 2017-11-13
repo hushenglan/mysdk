@@ -11,13 +11,13 @@
 
 class Demo2Callback : public Busi2Callback
 {
-    void callback(const struct Busi2CallbackParam& param)
+    void Callback(const struct Busi2CallbackParam& param)
     {
         std::cout << "in Demo2Callback callback, seq: " << param.seq <<
                                           ", is_need: " << param.is_need << std::endl;
     }
 
-    void timeout(const struct Busi2CallbackParam& param)
+    void Timeout(const struct Busi2CallbackParam& param)
     {
         std::cout << "in Demo2Callback timeout" << std::endl;
     }
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     param.param_1 = "I ";
     param.param_2 = "am ";
     param.param_3 = "super man";
-    busi.do_action(param);
+    busi.DoAction(param);
     busi.Update();
 
     busi.Fini();
