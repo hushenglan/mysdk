@@ -7,6 +7,7 @@
 
 #include "business_1_impl.h"
 #include <iostream>
+#include <cstdio>
 
 
 int Business1Impl::Init(int param_1, int param_2)

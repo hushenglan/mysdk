@@ -6,10 +6,10 @@
 
 #------------------------------- DEFINE -------------------------------
 CC = gcc
-CFLAGS = -std=gnu++11 -D_DEBUG -ggdb -O0 -Wall -Wextra -D_REENTRANT -D_FILE_OFFSET_BITS=64
+CFLAGS = -std=gnu++98 -D_DEBUG -ggdb -O0 -Wall -Wextra -D_REENTRANT -D_FILE_OFFSET_BITS=64
 
 CXX = g++
-CXXFLAGS = -std=gnu++11 -D_DEBUG -ggdb -O0 -Wall -Wextra -D_REENTRANT -D_FILE_OFFSET_BITS=64
+CXXFLAGS = -std=gnu++98 -D_DEBUG -ggdb -O0 -Wall -Wextra -D_REENTRANT -D_FILE_OFFSET_BITS=64
 
 AR      = ar
 ARFLAGS = -rvl

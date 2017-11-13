@@ -22,6 +22,11 @@ class Demo1Callback : public Busi1Callback
     {
         std::cout << "in Demo1Callback Timeout" << std::endl;
     }
+
+    // void _callback(void *param)
+    // {
+    //     std::cout << "in Demo1Callback _callback" << std::endl;
+    // }
 };
 
 

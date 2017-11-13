@@ -7,6 +7,7 @@
 
 #include "business_2_impl.h"
 #include <iostream>
+#include <cstdio>
 
 
 int Business2Impl::DoAction(const Busi2ActionParam& param)

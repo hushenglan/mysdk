@@ -21,8 +21,8 @@ public:
 };
 
 #define CALLBACK_USELESS_DECLARE \
-    void _callback(void *param); \
-    void _timeout(void *param)
+    void _callback(void *param) final; \
+    void _timeout(void *param) final
 
 
 /*
