@@ -23,7 +23,7 @@ struct Busi2CallbackParam
 
 
 /*
- * 用户需要实现的回调函数基类，子类实现callback和timeout即可
+ * 用户需要实现的回调函数基类，子类实现Callback和Timeout即可
  */
 class Busi2Callback : public Callback
 {

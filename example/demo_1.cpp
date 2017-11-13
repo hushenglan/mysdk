@@ -13,14 +13,14 @@ class Demo1Callback : public Busi1Callback
 {
     void Callback(struct Busi1CallbackParam *param)
     {
-        std::cout << "in Demo1Callback callback, seq: " << param->seq <<
+        std::cout << "in Demo1Callback Callback, seq: " << param->seq <<
                                             ", result: " << param->result <<
                                             ", msg: " << param->msg << std::endl;
     }
 
     void Timeout(struct Busi1CallbackParam *param)
     {
-        std::cout << "in Demo1Callback timeout" << std::endl;
+        std::cout << "in Demo1Callback Timeout" << std::endl;
     }
 };
 
