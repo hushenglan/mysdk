@@ -31,7 +31,7 @@ public:
     virtual void Callback(struct Busi1CallbackParam *param) = 0;
     virtual void Timeout(struct Busi1CallbackParam *param) = 0;
 
-    CALLBACK_USELESS_DECLARE;
+    USELESS_DECLARE;
 };
 
 

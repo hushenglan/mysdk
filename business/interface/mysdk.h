@@ -20,9 +20,9 @@ public:
     virtual void _timeout(void *param) = 0;
 };
 
-#define CALLBACK_USELESS_DECLARE \
-    void _callback(void *param) final; \
-    void _timeout(void *param) final
+#define USELESS_DECLARE \
+    void _callback(void *param); \
+    void _timeout(void *param)
 
 
 /*
