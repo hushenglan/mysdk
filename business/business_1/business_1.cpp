@@ -28,7 +28,7 @@ int Business1::Init(Callback *callback, int param_1, int param_2)
 {
     Mysdk::Init(callback);
     /*
-     * 此business单独的一些初始化，可以利用framework里面的组件
+     * 此business单独的一些初始化
      */
     printf("in Business1::Init, param_1: %d, param_2: %d\n", param_1, param_2);
 
@@ -40,7 +40,7 @@ int Business1::DoAction(int param_1, int param_2, int param_3)
     std::cout << "Business1 DoAction: " << param_1 + param_2 + param_3 << std::endl;
 
     char buf[] = "abcdefg";
-    return SendData(buf, strlen(buf) + 1);
+    return Mysdk::SendData(buf, strlen(buf) + 1);
 }
 
 int Business1::Update()
