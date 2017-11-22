@@ -31,7 +31,7 @@ int Business2::Init(Callback *callback)
 
 int Business2::DoAction(const Busi2ActionParam& param)
 {
-    std::cout << "Business2Impl DoAction: " << param.param_1 << param.param_2 << param.param_3 << std::endl;
+    std::cout << "Business2 DoAction: " << param.param_1 << param.param_2 << param.param_3 << std::endl;
 
     char buf[] = "abcdefg";
     return SendData(buf, strlen(buf) + 1);

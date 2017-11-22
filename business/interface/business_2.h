@@ -49,7 +49,6 @@ struct Busi2ActionParam
 /*
  * 用户可以使用的业务接口
  */
-class Business2Impl;
 class Business2 : public Mysdk
 {
 public:
@@ -57,9 +56,6 @@ public:
     int DoAction(const Busi2ActionParam& param);
     int Update();
     int Fini();
-
-private:
-    Business2Impl *m_business2_impl;
 };
 
 

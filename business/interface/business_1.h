@@ -38,7 +38,6 @@ public:
 /*
  * 用户可以使用的业务接口
  */
-class Business1Impl;
 class Business1 : public Mysdk
 {
 public:
@@ -46,9 +45,6 @@ public:
     int DoAction(int param_1, int param_2, int param_3);
     int Update();
     int Fini();
-
-private:
-    Business1Impl *m_business1_impl;
 };
 
 
