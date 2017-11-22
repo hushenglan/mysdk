@@ -34,11 +34,10 @@ public:
     Mysdk();
     ~Mysdk();
 
+protected:
     int Init(Callback *callback);
     int Update();
     int Fini();
-
-protected:
     int SendData(char* buf, int buf_len);
 
 private:

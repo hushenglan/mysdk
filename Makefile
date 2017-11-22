@@ -50,9 +50,7 @@ MYLIB = $(PROJ_DIR)/mylib.a
 MYLIB_OBJS = $(FRAMEWORK_OBJS_DIR)/mysdk.o \
              $(FRAMEWORK_OBJS_DIR)/mysdk_impl.o \
              $(BUSINESS1_OBJS_DIR)/business_1.o \
-             $(BUSINESS1_OBJS_DIR)/business_1_impl.o \
-             $(BUSINESS2_OBJS_DIR)/business_2.o \
-             $(BUSINESS2_OBJS_DIR)/business_2_impl.o
+             $(BUSINESS2_OBJS_DIR)/business_2.o
 
 DEMO_OBJS  = $(OBJS_DIR)/$(DEMO_CPP_NAME).o
 DEMO_EXE   = $(PROJ_DIR)/demo
