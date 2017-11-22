@@ -6,8 +6,9 @@
  */
 
 #include "business_2.h"
-#include "business_2_impl.h"
 #include <iostream>
+#include <cstdio>
+#include <cstring>
 
 
 void Busi2Callback::_callback(void *param)
@@ -30,7 +31,10 @@ int Business2::Init(Callback *callback)
 
 int Business2::DoAction(const Busi2ActionParam& param)
 {
-    return m_business2_impl->DoAction(param);
+    std::cout << "Business2Impl DoAction: " << param.param_1 << param.param_2 << param.param_3 << std::endl;
+
+    char buf[] = "abcdefg";
+    return SendData(buf, strlen(buf) + 1);
 }
 
 int Business2::Update()

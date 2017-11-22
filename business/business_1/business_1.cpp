@@ -6,8 +6,9 @@
  */
 
 #include "business_1.h"
-#include "business_1_impl.h"
 #include <iostream>
+#include <cstdio>
+#include <cstring>
 
 
 void Busi1Callback::_callback(void *param)
@@ -26,12 +27,20 @@ void Busi1Callback::_timeout(void *param)
 int Business1::Init(Callback *callback, int param_1, int param_2)
 {
     Mysdk::Init(callback);
-    return m_business1_impl->Init(param_1, param_2);
+    /*
+     * 此business单独的一些初始化，可以利用framework里面的组件
+     */
+    printf("in Business1::Init, param_1: %d, param_2: %d\n", param_1, param_2);
+
+    return 0;
 }
 
 int Business1::DoAction(int param_1, int param_2, int param_3)
 {
-    return m_business1_impl->DoAction(param_1, param_2, param_3);
+    std::cout << "Business1 DoAction: " << param_1 + param_2 + param_3 << std::endl;
+
+    char buf[] = "abcdefg";
+    return SendData(buf, strlen(buf) + 1);
 }
 
 int Business1::Update()

@@ -32,6 +32,11 @@ int MysdkImpl::Init(Callback *callback)
     return 0;
 }
 
+int MysdkImpl::SendData(char* buf, int buf_len)
+{
+    return 0;
+}
+
 int MysdkImpl::Update()
 {
     /*

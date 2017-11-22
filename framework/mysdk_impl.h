@@ -26,6 +26,7 @@ public:
     int Init(Callback *callback);
     int Update();
     int Fini();
+    int SendData(char* buf, int buf_len);
 
 private:
     Callback *m_callback;

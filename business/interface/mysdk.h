@@ -38,6 +38,9 @@ public:
     int Update();
     int Fini();
 
+protected:
+    int SendData(char* buf, int buf_len);
+
 private:
     MysdkImpl *m_mysdk_impl;
 };
